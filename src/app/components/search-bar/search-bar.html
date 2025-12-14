@@ -1,0 +1,36 @@
+<!-- Barre de recherche -->
+<div class="input-group input-group-lg">
+  <span class="input-group-text" id="inputGroup-sizing-lg">Brand</span>
+  <input
+    type="text"
+    class="form-control"
+    aria-label="Sizing example input"
+    aria-describedby="inputGroup-sizing-lg"
+    placeholder="e.g. Audi"
+    (input)="selectAutoList(brand.value)"
+    #brand
+  />
+  <button class="btn btn-outline-primary" (click)="selectAutoList(brand.value)">Search</button>
+</div>
+
+<!-- Résultats filtrés -->
+<div
+  class="container"
+  style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; padding: 20px"
+>
+  @for (auto of selectedAutos; track auto.id) {
+  <div class="card" style="width: 18rem">
+    <img [src]="auto.photo" class="card-img-top" [alt]="auto.model" />
+
+    <div class="card-body">
+      <h5 class="card-title">{{ auto.brand }} - {{ auto.model }}</h5>
+      <p class="card-text">Power: {{ auto.power }} CV</p>
+      <p class="card-text">Price: {{ auto.price }} DNT</p>
+      <p class="card-text">Only {{ auto.availability }} units available</p>
+      <button class="btn btn-info" (click)="showDetails(auto)">View</button>
+    </div>
+  </div>
+  } @empty {
+  <h3>No cars found ...</h3>
+  }
+</div>

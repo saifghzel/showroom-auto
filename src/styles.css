@@ -1,1 +1,338 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  /* ===== LUXURY BLACK & GOLD ===== */
+  --bg-main: #07090d;
+  --bg-soft: #0c1018;
+  --bg-card: #0f1623;
+  --bg-elevated: #141d2d;
+
+  --border-dark: rgba(255, 255, 255, 0.1);
+
+  --text-main: #f3f5f8;
+  --text-muted: rgba(243, 245, 248, 0.7);
+
+  /* Gold accents */
+  --gold: #d4af37;
+  --gold-2: #f5d67b;
+
+  /* Keep a subtle blue for some UI states if needed */
+  --primary: #d4af37;
+  --secondary: #f5d67b;
+}
+
+/* ===== BASE ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(850px 420px at 12% -12%, rgba(212, 175, 55, 0.1), transparent 60%),
+    radial-gradient(700px 320px at 88% 8%, rgba(245, 214, 123, 0.08), transparent 58%),
+    linear-gradient(180deg, #07090d 0%, #05070b 100%);
+  color: var(--text-main);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+/* ===== PAGE ===== */
+.page {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  margin: 26px 0 34px;
+  scroll-margin-top: 90px;
+}
+
+.section__title {
+  font-size: 22px;
+  margin: 0 0 14px;
+  color: var(--text-main);
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(245, 214, 123, 0.06));
+  border: 1px solid var(--border-dark);
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.7);
+}
+
+.hero__title {
+  margin: 0 0 6px;
+  font-size: 34px;
+  letter-spacing: -0.6px;
+  color: var(--text-main);
+}
+
+.hero__subtitle {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ===== OFFRES / ABOUT ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.info-card,
+.about {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
+  border: 1px solid var(--border-dark);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.7);
+}
+
+.info-card h3 {
+  margin: 0 0 6px;
+  color: var(--text-main);
+}
+
+.info-card p,
+.about {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ===== SEARCH BAR ===== */
+.input-group {
+  background: rgba(12, 16, 24, 0.85);
+  border: 1px solid var(--border-dark);
+  border-radius: 16px;
+  padding: 6px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+.input-group-text {
+  background: transparent !important;
+  color: var(--text-muted) !important;
+  border: none !important;
+  font-weight: 800;
+}
+
+.form-control {
+  background: transparent !important;
+  border: none !important;
+  color: var(--text-main) !important;
+  box-shadow: none !important;
+}
+
+.form-control::placeholder {
+  color: rgba(243, 245, 248, 0.4) !important;
+}
+
+/* Search button */
+.btn-outline-primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-2)) !important;
+  border: none !important;
+  color: #0a0d12 !important;
+  border-radius: 14px !important;
+  padding: 10px 18px;
+  font-weight: 1000;
+}
+
+/* ===== VEHICLE CARDS ===== */
+.card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(15, 22, 35, 0.96), rgba(12, 16, 24, 0.92)) !important;
+  border: 1px solid var(--border-dark) !important;
+  border-radius: 22px !important;
+  box-shadow: 0 20px 65px rgba(0, 0, 0, 0.75) !important;
+  overflow: hidden;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(212, 175, 55, 0.55) !important;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.88) !important;
+}
+
+/* Premium badge */
+.card::before {
+  content: 'Luxury';
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 1000;
+  letter-spacing: 0.4px;
+  color: #0a0d12;
+  background: linear-gradient(135deg, var(--gold), var(--gold-2));
+  border-radius: 999px;
+  z-index: 2;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.card-title {
+  color: var(--text-main) !important;
+  font-weight: 1000;
+}
+
+.card-text {
+  color: var(--text-muted) !important;
+}
+
+/* Image (avoid white background effect) */
+.card-img-top {
+  height: 210px;
+  object-fit: cover;
+  background: #07090d;
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* View button */
+.btn-info,
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-2)) !important;
+  border: none !important;
+  border-radius: 999px !important;
+  padding: 10px 22px;
+  font-weight: 1000;
+  color: #0a0d12 !important;
+  box-shadow: 0 14px 34px rgba(212, 175, 55, 0.22) !important;
+}
+
+.btn-info:hover,
+.btn-primary:hover {
+  filter: brightness(1.06);
+}
+
+/* ===== MODAL ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(9px);
+  z-index: 999;
+}
+
+.modal-window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(900px, 95%);
+  border-radius: 22px;
+  z-index: 1000;
+  padding: 20px;
+  animation: scaleIn 0.18s ease;
+
+  background: linear-gradient(180deg, rgba(20, 29, 45, 0.98), rgba(10, 13, 18, 0.98));
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 45px 120px rgba(0, 0, 0, 0.88);
+  color: var(--text-main);
+}
+
+@keyframes scaleIn {
+  from {
+    transform: translate(-50%, -50%) scale(0.97);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  right: 14px;
+  top: 10px;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  color: var(--text-main);
+  cursor: pointer;
+  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.modal-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.modal-image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid rgba(212, 175, 55, 0.22);
+}
+
+.modal-info h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--text-main);
+  letter-spacing: -0.3px;
+}
+
+.description {
+  margin: 10px 0 14px;
+  color: var(--text-muted);
+}
+
+.specs {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin: 14px 0;
+  color: var(--text-main);
+}
+
+.cta {
+  background: linear-gradient(135deg, var(--gold), var(--gold-2));
+  color: #0a0d12;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 1000;
+  cursor: pointer;
+}
+
+.cta:hover {
+  filter: brightness(1.06);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-body {
+    grid-template-columns: 1fr;
+  }
+  .modal-image {
+    height: 260px;
+  }
+}
